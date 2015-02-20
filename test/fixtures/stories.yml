@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  point_value: 1
+  Stage: MyString
+  Developer: MyString
+
+two:
+  title: MyString
+  description: MyString
+  point_value: 1
+  Stage: MyString
+  Developer: MyString

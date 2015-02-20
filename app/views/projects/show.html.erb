@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Developer:</strong>
+  <%= @project.developer %>
+</p>
+
+<tbody>
+<p>
+  <strong>All stories:</strong>
+  <% @stories.each do |story| %>
+      <tr>
+        <td><%= story.title if story.Project_id == @project.id %></td>
+      </tr>
+  <% end %>
+</p>
+</tbody>
+
+<tbody>
+<p>
+  <strong>Storyboard:</strong><br>
+  Stories that are not Completed:
+  <% @stories.each do |story| %>
+      <tr>
+        <td><%= story.title if (story.Project_id == @project.id && story.Stage != 'Complete') %></td>
+      </tr>
+  <% end %>
+  <br>
+  Points for each Stage:<br>
+  Analysis: <%=@t0 %><br>
+  Ready For Dev: <%=@t1 %><br>
+  In Dev: <%=@t2 %><br>
+  Dev Complete: <%=@t3 %><br>
+  In Test: <%=@t4 %><br>
+  Complete: <%=@t5 %><br>
+
+</p>
+</tbody>
+
+<%= link_to 'Back', admins_path %>

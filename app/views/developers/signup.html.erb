@@ -1,0 +1,22 @@
+<%= form_for(@developer) do |f| %>
+    <% if @developer.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@developer.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+          <ul>
+            <% @developer.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label "Sign up a story" %><br>
+      <%= select("developer", "Story_id", @stories.collect{ |c| [c.title,c.id]}) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>

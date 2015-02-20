@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @developer.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @developer.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @developer.password %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <% @project.each do |f| %>
+  <%= f.title if (f.id == @developer.Project_id ) %>
+  <% end %>
+</p>
+<br>
+<%= link_to "Log out", logout_path %><br>
+<%= link_to "change your password", passwordchange_path%>
+
+<h1>Listing All Stories</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Point value</th>
+    <th>Stage</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @allstories.each do |story| %>
+      <tr>
+        <td><%= story.title %></td>
+        <td><%= story.description %></td>
+        <td><%= story.point_value %></td>
+        <td><%= story.Stage %></td>
+        <td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><% end %></td>
+  </tr>
+  </tbody>
+</table>
+
+<h1>Listing Stories created by you</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Point value</th>
+    <th>Stage</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+  <tbody>
+<% @stories.each do |story| %>
+    <tr>
+      <td><%= story.title %></td>
+      <td><%= story.description %></td>
+      <td><%= story.point_value %></td>
+      <td><%= story.Stage %></td>
+      <td><%= link_to 'Show', story %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link_to 'create a story', createstory_path %> <br> <br>
+<%= link_to 'sign up a story', signup_path %> <br> <br>
